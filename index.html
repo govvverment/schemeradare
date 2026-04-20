@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Мои соцсети</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  body {
+    position: relative;
+    overflow-x: hidden;
+    background: #0b0b0b;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -20px;
+    background: url('78E302C2-596D-4144-9894-7E4461E5BDD7.JPG') no-repeat center center;
+    background-size: cover;
+    filter: blur(10px);
+    transform: scale(1.05);
+    z-index: -2;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: -1;
+  }
+
+  .wrapper {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 31.25px;
+    padding: 62.5px 47px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18.75px 46.875px rgba(0, 0, 0, 0.25);
+    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
+    transform: translateY(25px);
+    max-width: 750px;
+    width: 100%;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 37.5px;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 140px;
+    padding: 25px 37.5px;
+    font-size: 34.375px;
+    font-weight: bold;
+    border: 2.5px solid #000;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 31.25px;
+    box-shadow: 0 12.5px 31.25px rgba(0, 0, 0, 0.25);
+    transition: all 0.35s ease;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    background-size: 200% 200%;
+  }
+
+  .button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: rotate(25deg);
+    transition: all 0.75s ease;
+    pointer-events: none;
+  }
+
+  .button:hover::before {
+    top: -25%;
+    left: -25%;
+  }
+
+  .button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    border-color: #000;
+  }
+
+  .button:active {
+    transform: scale(0.97);
+  }
+
+  .button i {
+    font-size: 50px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.4));
+  }
+
+  .button span {
+    display: inline-block;
+    word-break: break-word;
+    line-height: 1.2;
+    flex: 1;
+  }
+
+  .telegram {
+    background: linear-gradient(135deg, #0b0f14, #1b222c, #2f3a48);
+    color: #e9f1ff;
+  }
+
+  .instagram {
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    animation: gradientMove 6s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .instagram i {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, 
+      #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .info-wrapper {
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    border-radius: 31.25px;
+    margin-top: 156.25px;
+    padding: 37.5px 47px;
+    width: 95vw;
+    max-width: 843.75px;
+    box-shadow: 0 15.625px 37.5px rgba(0, 0, 0, 0.3);
+  }
+
+  .info-wrapper1 {
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    border-radius: 31.25px;
+    margin-bottom: 40px; /* расстояние до основного блока */
+    padding: 37.5px 47px;
+    width: 95vw;
+    max-width: 843.75px;
+    box-shadow: 0 15.625px 37.5px rgba(0, 0, 0, 0.3);
+
+    /* немного поднимаем вверх */
+    transform: translateY(-60px);
+  }
+
+  .cta-wrapper {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 750px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 31.25px;
+    padding: 35px 35px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18.75px 46.875px rgba(0, 0, 0, 0.25);
+  }
+
+  .info-text {
+    font-size: 35.9px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.6;
+  }
+</style>
+
+</head>
+<body>
+  <div class="info-wrapper1">
+    <div class="info-text">
+      В нашем комьюнити люди с особым статусом и умом. Читай закреп в канале, и поймешь как стать одним из нас!
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="button-container">
+	  <a class="button telegram" href="https://t.me/+JInb-hvJj141ZGM5" target="_blank">
+        <i class="fab fa-telegram-plane"></i>
+        <span>Канал Топового Трейдера</span>
+      </a>
+	  
+    </div>
+  </div>
+
+  <div class="info-wrapper">
+    <div class="info-text">
+      Если не открывает ссылку — нажмите «...», и откройте страницу через браузер.
+    </div>
+  </div>
+</body>
+</html>
+
+
